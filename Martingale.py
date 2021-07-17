@@ -1,13 +1,18 @@
-ValorTotal = float(input("Valor Total:"))
-ValorInicial = float(input("Valor inicial:"))
-Porcentagem = float(input("Porcentagem na derrota:"))
-ValorTotalParaSoma = ValorTotal
+#Total Value
+ValorTotal = float(input("Valor Total: "))
+#Initial bet value
+ValorInicial = float(input("Valor Inicial: "))
+# Multiplier
+MultiplicadorOnLoss = float(input("Multiplicador: "))
+ValorResultante = ValorInicial
+Soma = ValorTotal
 
 for i in range(20):
-    ValorResultante = ValorInicial*Porcentagem
-    print(ValorResultante)
-    ValorTotalParaSoma = ValorTotalParaSoma-ValorResultante
-    ValorInicial = ValorResultante
-    if ValorTotalParaSoma < 0:
-        print("Você chegou na camada "+str(i+1))
+    Soma = ValorTotal - ValorResultante
+    print("{:.2f}".format(Soma), i+1)
+    if Soma <=0:
+        print("Você chegou na camada: ", i)
         break
+    ValorResultante = ValorInicial*MultiplicadorOnLoss
+    ValorInicial = ValorResultante
+    Soma = ValorTotal-ValorResultante
