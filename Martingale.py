@@ -8,11 +8,11 @@ ValorResultante = ValorInicial
 Soma = ValorTotal
 
 for i in range(20):
-    Soma = ValorTotal - ValorResultante
-    print("{:.2f}".format(Soma), i+1)
-    if Soma <=0:
-        print("Você chegou na camada: ", i)
-        break
     ValorResultante = ValorInicial*MultiplicadorOnLoss
     ValorInicial = ValorResultante
     Soma = ValorTotal-ValorResultante
+    print(Soma, i+1)
+    if Soma < 0:
+        print("Você chegou na camada: ", i)
+        print("Para chegar na camada ", i+1, " você precisaria de mais", -Soma," que daria um total de", ValorResultante)
+        break
